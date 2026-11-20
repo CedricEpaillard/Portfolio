@@ -143,24 +143,29 @@ window.PORTFOLIO_PROJECTS = [
     id: "agent-cedric",
     num: "06",
     category: "web",
-    categoryLabel: "Web, Python & Labo IA",
-    title: "AgentCedric & LLM Entraîné (Colab / Qwen GRPO)",
+    categoryLabel: "Web, Python & Automatisation IA",
+    title: "AgentCedric & Modèle IA Entraîné (Colab / Qwen)",
     year: "2025 – 2026",
-    role: "Développement Full Stack, Distillation IA & Automatisation",
+    role: "Développement Full Stack, Prospection Automatisée & Fine-Tuning IA",
     summary:
-      "Entraînement sur Google Colab A100 d'un Qwen2.5-Coder-14B guidé par un modèle tuteur (27B/32B) sur 1 000 étapes GRPO (86,59 % HumanEval), associé à la suite Python/Streamlit AgentCedric et au pipeline Ecceite.",
+      "Outil complet de prospection et d'audit automatisé (API INSEE autour de Lodève, analyse de site web & réseaux sociaux, rédaction et génération de dossiers PDF A4), couplé à l'entraînement sur Colab d'un modèle Qwen2.5-Coder-14B spécialisé.",
     highlights: [
-      "Distillation & RL (Google Colab A100) : entraînement GRPO sur 1 000 questions/étapes guidé par un modèle tuteur (27B/32B) pour renforcer un Qwen2.5-Coder-14B (raisonnement compressé [LATENT], appel d'outils [SKILL], bilingue FR/EN).",
-      "Évaluation vérifiée sous EvalPlus (HumanEval Pass@1 : 86,59 %, HumanEval+ Pass@1 : 82,32 %), quantification GGUF Q4_K_M pour Ollama et publication sur Hugging Face.",
-      "AgentCedric (Local) : API État/INSEE, scraping multi-pages site & réseaux sociaux, rédaction Gemini/Groq, génération de CV PDF A4 (Playwright) et suivi Gmail.",
-      "Ecceite (Google Colab) : automatisation multi-agents reliée à Google Sheets + Google Custom Search API + Gemini."
+      "Bénéfice métier (AgentCedric) : repérage automatique d'entreprises locales via l'API INSEE, audit multi-pages de leur présence web/sociale, génération de dossiers et CV PDF A4 via Playwright et suivi Gmail.",
+      "Distillation & RL (Google Colab A100) : entraînement GRPO sur 1 000 questions/étapes guidé par un modèle tuteur (27B/32B) pour spécialiser un Qwen2.5-Coder-14B (raisonnement compressé [LATENT], appel d'outils [SKILL], bilingue FR/EN).",
+      "Benchmarks vérifiés EvalPlus (HumanEval Pass@1 : 86,59 %, HumanEval+ Pass@1 : 82,32 %), quantification GGUF Q4_K_M pour Ollama et publication publique sur Hugging Face.",
+      "Ecceite (Google Colab) : pipeline éditorial automatisé reliant Google Sheets, Google Custom Search API et Gemini."
     ],
-    tools: ["Python", "Google Colab A100", "Ollama / GGUF", "Streamlit", "Playwright", "Gemini / Groq"],
-    deliverables: ["1 000 étapes GRPO (Tuteur -> 14B)", "86,59 % HumanEval Pass@1", "Suite Full Stack + PDF A4"],
+    tools: ["Python", "Streamlit", "Playwright", "Google Colab A100", "Ollama / GGUF", "Gemini / Groq"],
+    deliverables: ["Prospection & Audit Auto", "Modèle 14B (86,59 % HumanEval)", "Interface Streamlit + PDF A4"],
     coverImage: "assets/schema_qwen_distillation.png",
     gallery: [
       { src: "assets/schema_qwen_distillation.png", caption: "Architecture d'entraînement GRPO : Tuteur 27B/32B -> 1 000 questions -> Qwen2.5-Coder-14B (86,59 % HumanEval)" },
-      { src: "assets/schema_agentcedric_pipeline.png", caption: "Pipeline applicatif AgentCedric (INSEE + Audit Web + PDF A4) & Ecceite Colab" }
+      { src: "assets/schema_agentcedric_pipeline.png", caption: "Pipeline applicatif AgentCedric (INSEE + Audit Web + PDF A4) & Ecceite Colab" },
+      { src: "assets/agentcedric_ui_capture.png", caption: "Interface réelle AgentCedric sous Streamlit (Tableau de bord automatisé)" }
+    ],
+    links: [
+      { label: "Modèle Hugging Face (Qwen 14B)", url: "https://huggingface.co/otoroute/Qwen2.5-Coder-14B-Latent-Skill-Multilingual", primary: true },
+      { label: "Code Portfolio sur GitHub", url: "https://github.com/CedricEpaillard/Portfolio", primary: false }
     ]
   },
   {
@@ -172,42 +177,20 @@ window.PORTFOLIO_PROJECTS = [
     year: "2019 – 2024",
     role: "Designer UI, Assistant E-commerce & Consultant Web/CRM",
     summary:
-      "Conception complète d'application mobile (identité graphique + écrans UX), refonte e-commerce SEO/Figma chez Go Easy et déploiement de sites responsive & CRM.",
+      "Conception complète d'application mobile (maquettes d'écrans UX/UI et parcours utilisateur), refonte e-commerce SEO/Figma chez Go Easy et déploiement de sites vitrines & outils CRM.",
     highlights: [
-      "Application mobile complète (« L'espace des possibles ») : charte graphique dédiée, parcours utilisateur, wireframes et maquettes.",
-      "Refonte e-commerce chez Go Easy : UX, lisibilité produit, référencement SEO, maquettes Figma et packagings.",
-      "Création de sites responsive from scratch (HTML/CSS/WordPress) et structuration CRM en auto-entrepreneur."
+      "Application mobile complète (« Votez. Simplement / L'espace des possibles ») : maquettage des écrans iOS/Android, système de composants, boutons et parcours sondage.",
+      "Refonte e-commerce chez Go Easy : ergonomie UX, lisibilité produit, référencement naturel SEO, maquettes Figma et packagings.",
+      "Création de sites web responsive from scratch (HTML/CSS/WordPress) et structuration CRM pour des clients en auto-entrepreneur."
     ],
     tools: ["Figma", "WordPress", "HTML / CSS", "CRM & SEO"],
-    deliverables: ["Maquettes App Mobile UX/UI", "Refonte e-commerce & SEO", "Sites responsive & CRM"],
-    coverImage: "assets/renders/app_ux_p2.jpg",
+    deliverables: ["Maquettes écrans App Mobile", "Refonte e-commerce & SEO", "Sites responsive & CRM"],
+    coverImage: "assets/renders/app_ux_screens_1.jpg",
     gallery: [
-      { src: "assets/renders/app_ux_p1.jpg", caption: "Application mobile — Couverture & identité" },
-      { src: "assets/renders/app_ux_p2.jpg", caption: "Concept UI — L'espace des possibles" },
-      { src: "assets/renders/app_ux_p3.jpg", caption: "Architecture d'écrans et parcours utilisateur" }
-    ]
-  },
-  {
-    id: "campus-bde-supdecom",
-    num: "08",
-    category: "communication",
-    categoryLabel: "Vie Étudiante & Leadership",
-    title: "Sup'de Com — Délégué 3 ans, BDE & Campus",
-    year: "2022 – 2025",
-    role: "Délégué de promotion (3 ans) & Responsable Vie Étudiante (BDE 2 ans)",
-    summary:
-      "Engagement terrain continu pendant tout le Bachelor : représentation étudiante aux conseils de bloc, animation du campus, événements BDE et campagnes de communication internes décalées.",
-    highlights: [
-      "Élu délégué de promotion 3 années consécutives : médiation pédagogie/étudiants et prise de parole en conseils de bloc.",
-      "Membre actif du BDE pendant 2 ans et responsable de la vie étudiante du campus : logistique, partenariats et fédération des promos.",
-      "Affiches de campagne volontairement second degré (« Votez Cédric ») alliant autodérision en interne et rigueur sur les livrables officiels."
-    ],
-    tools: ["Photoshop", "Canva", "Gestion de projet", "Partenariats"],
-    deliverables: ["3 ans Délégué élu", "2 ans BDE & Vie Étudiante", "Affiches & animation campus"],
-    coverImage: "assets/bde_votez_cedric.jpg",
-    gallery: [
-      { src: "assets/bde_votez_cedric.jpg", caption: "Affiche décalée — Campagne élection délégué / vie étudiante Sup'de Com" },
-      { src: "assets/6h_crea_post.jpg", caption: "Format social media carré — Événement campus/culture" }
+      { src: "assets/renders/app_ux_screens_1.jpg", caption: "Écrans mobiles — Sondage en cours, résultats et création" },
+      { src: "assets/renders/app_ux_screens_2.jpg", caption: "Architecture d'écrans et gabarits mobile (1 / 2 / 3)" },
+      { src: "assets/renders/app_ux_buttons.jpg", caption: "Design System mobile — Boutons et barre de navigation" },
+      { src: "assets/renders/app_ux_p1.jpg", caption: "Présentation concept — Votez. Simplement" }
     ]
   }
 ];

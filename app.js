@@ -206,7 +206,7 @@
         .map(
           (g, idx) => `
           <button class="modal-thumb ${idx === 0 ? "active" : ""}" type="button" data-idx="${idx}" title="${escapeHtml(g.caption || "")}">
-            <img src="${escapeHtml(g.src)}" alt="${escapeHtml(g.caption || p.title)}" loading="lazy" />
+            <img src="${escapeHtml(g.src)}" alt="${escapeHtml(g.caption || p.title)}" />
           </button>`
         )
         .join("");
@@ -232,6 +232,11 @@
           <div id="calameoEmbedSlot"></div>
         </div>
       `;
+    } else if (p.links && p.links.length) {
+      const linksHtml = p.links
+        .map((l) => `<a href="${escapeHtml(l.url)}" target="_blank" rel="noopener" class="btn ${l.primary ? "btn-primary" : ""}">${escapeHtml(l.label)} ↗</a>`)
+        .join("");
+      extraBlock = `<div style="display:flex; gap:0.75rem; flex-wrap:wrap;">${linksHtml}</div>`;
     } else if (p.externalUrl) {
       extraBlock = `<a href="${escapeHtml(p.externalUrl)}" target="_blank" rel="noopener" class="btn btn-primary">${escapeHtml(p.externalLabel || "Voir")} ↗</a>`;
     }

@@ -376,13 +376,11 @@ button {
   height: 100%;
   object-fit: cover;
   object-position: center top;
-  filter: grayscale(85%) contrast(1.08);
-  transition: filter 0.45s ease, transform 0.6s ease;
+  transition: transform 0.45s ease;
 }
 
 .hero-portrait-card:hover .portrait-frame img {
-  filter: grayscale(0%) contrast(1.02);
-  transform: scale(1.03);
+  transform: scale(1.02);
 }
 
 .portrait-overlay-label {
@@ -544,8 +542,10 @@ button {
   background: var(--stage-bg);
   border-bottom: 1px solid var(--line);
   overflow: hidden;
-  display: grid;
-  place-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.65rem;
 }
 
 .project-card.featured .project-visual {
@@ -556,19 +556,23 @@ button {
 }
 
 .project-visual img.cover-img {
-  width: 100%;
-  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
   object-fit: contain;
   object-position: center;
-  padding: 0.7rem;
-  background: var(--stage-bg);
-  transition: transform 0.45s ease;
+  background: transparent;
+  transition: transform 0.4s ease;
 }
 
 .project-visual img.cover-img.contain-fit {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
   object-fit: contain;
-  padding: 0.7rem;
-  background: var(--stage-bg);
+  background: transparent;
 }
 
 .project-card:hover .project-visual img.cover-img {
@@ -1312,9 +1316,41 @@ dialog.project-modal::backdrop {
 }
 
 @media (max-width: 560px) {
+  .hero {
+    padding: 1.75rem 0 1.9rem;
+  }
+
+  .eyebrow {
+    font-size: 0.68rem;
+    margin-bottom: 0.85rem;
+  }
+
+  .hero-title {
+    font-size: 1.95rem;
+    margin-bottom: 0.9rem;
+  }
+
+  .hero-title .line-accent {
+    font-size: 1.75rem;
+  }
+
+  .hero-lead {
+    font-size: 0.93rem;
+    margin-bottom: 1.15rem;
+  }
+
+  .hero-cta {
+    gap: 0.5rem;
+  }
+
+  .hero-cta .btn {
+    padding: 0.58rem 0.85rem;
+    font-size: 0.72rem;
+  }
+
   .hero-grid {
     grid-template-columns: minmax(0, 1fr) 118px;
-    gap: 1.15rem 0.8rem;
+    gap: 1.05rem 0.8rem;
   }
 
   .hero-portrait-card {
