@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cédric Epaillard — Direction Artistique, Communication & Développement Web</title>
+  <meta name="description" content="Portfolio de Cédric Epaillard : communication institutionnelle, édition PAO, design web, CRM et automatisation IA. Basé à Lodève (34700) & Full Remote." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Cormorant+Garamond:ital,wght@0,600;1,600&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- NAVIGATION -->
+  <header class="site-header">
+    <div class="container nav-inner">
+      <a href="#top" class="brand">
+        <span class="brand-mark">CE</span>
+        <span class="brand-text">
+          <strong>Cédric Epaillard</strong>
+          <span>Com · PAO · Web &amp; IA — Lodève / Remote</span>
+        </span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#projets">01 · Sommaire</a></li>
+        <li><a href="#atelier">02 · Édition &amp; Vidéo</a></li>
+        <li><a href="#parcours">03 · Parcours</a></li>
+        <li><a href="#contact">04 · Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button id="themeToggle" class="btn btn-icon" type="button" title="Basculer Studio Sombre / Mode Papier">
+          ◐ Thème
+        </button>
+        <a href="assets/CV_Cedric_Epaillard.pdf" download class="btn btn-primary">
+          CV PDF ↓
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <main id="top">
+    <section class="hero">
+      <!-- Plan architectural inspiré du sommaire Les Backrooms -->
+      <div class="hero-blueprint" aria-hidden="true">
+        <svg id="blueprintSvg" viewBox="0 0 600 600" fill="none" stroke-width="1">
+          <rect x="40" y="40" width="520" height="520" />
+          <rect x="90" y="90" width="220" height="170" />
+          <rect x="340" y="90" width="180" height="120" />
+          <rect x="90" y="290" width="140" height="220" />
+          <rect x="260" y="240" width="260" height="140" />
+          <rect x="260" y="410" width="170" height="100" />
+          <path d="M90 140 H310 M160 90 V260 M340 150 H520 M420 90 V210 M160 290 V510 M90 380 H230 M320 240 V380 M440 240 V380 M350 410 V510" stroke-dasharray="5 5" />
+          <circle cx="310" cy="260" r="46" />
+          <circle cx="310" cy="260" r="92" stroke-dasharray="3 6" />
+          <line x1="20" y1="260" x2="580" y2="260" stroke-opacity="0.45" />
+          <line x1="310" y1="20" x2="310" y2="580" stroke-opacity="0.45" />
+        </svg>
+      </div>
+
+      <div class="container hero-grid">
+        <div class="reveal in-view">
+          <div class="eyebrow">Portfolio Éditorial &amp; Technique · Édition 2026</div>
+          <h1 class="hero-title">
+            Donner de la forme,
+            <span class="line-accent">structurer les outils.</span>
+          </h1>
+          <p class="hero-lead">
+            <strong>Bachelor Responsable de Communication</strong> &amp; <strong>BTS Développeur Full Stack</strong>.
+            De la mise en page éditoriale sous InDesign à la refonte d'intranets, du pilotage de campagnes CRM à l'automatisation IA en Python, je relie le sens visuel à la rigueur opérationnelle.
+          </p>
+
+          <div class="hero-cta">
+            <a href="#projets" class="btn btn-primary">Explorer le Sommaire ↓</a>
+            <a href="#atelier" class="btn">Feuilleter le Magazine &amp; Créas</a>
+            <a href="#contact" class="btn">Prendre contact</a>
+          </div>
+
+          <div class="hero-meta-strip">
+            <div class="meta-stat">
+              <strong>416</strong>
+              <span>Salariés · Intranet Opéra</span>
+            </div>
+            <div class="meta-stat">
+              <strong>35 000+</strong>
+              <span>Contacts · &gt;40 % ouverture</span>
+            </div>
+            <div class="meta-stat">
+              <strong>6 ans</strong>
+              <span>Gestion client &amp; autonomie</span>
+            </div>
+          </div>
+        </div>
+
+        <aside class="hero-portrait-card reveal in-view">
+          <div class="portrait-frame">
+            <img src="assets/photo_cedric.jpg" alt="Portrait de Cédric Epaillard" />
+            <span class="portrait-overlay-label">ARCHIVES · 2026</span>
+          </div>
+          <div class="portrait-caption">
+            <span>Lodève (34700) · Remote</span>
+            <span class="status-dot">Disponible</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- 01. SOMMAIRE / PROJETS -->
+    <section id="projets" class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="section-title-wrap">
+            <span class="section-index">01 // INDEX</span>
+            <div>
+              <h2 class="section-title">Sommaire des Réalisations</h2>
+              <p class="section-sub">
+                Sélection de projets réels mêlant direction artistique, communication institutionnelle, design produit et développement Full Stack. Clique sur une carte pour ouvrir le dossier complet.
+              </p>
+            </div>
+          </div>
+
+          <div class="filter-bar" role="tablist" aria-label="Filtrer les projets">
+            <button class="filter-btn active" data-filter="all" type="button">Tous</button>
+            <button class="filter-btn" data-filter="edition" type="button">Édition &amp; PAO</button>
+            <button class="filter-btn" data-filter="communication" type="button">Communication</button>
+            <button class="filter-btn" data-filter="web" type="button">Web &amp; IA</button>
+          </div>
+        </div>
+
+        <div id="projectsGrid" class="projects-grid"></div>
+      </div>
+    </section>
+
+    <!-- 02. ATELIER ÉDITION & VIDÉO -->
+    <section id="atelier" class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="section-title-wrap">
+            <span class="section-index">02 // ATELIER</span>
+            <div>
+              <h2 class="section-title">Édition, Visuels &amp; Vidéo</h2>
+              <p class="section-sub">
+                Espace consacré à mes publications interactives, essais visuels et montages courts.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div id="studioGrid" class="studio-grid"></div>
+      </div>
+    </section>
+
+    <!-- 03. PARCOURS CHRONOLOGIQUE -->
+    <section id="parcours" class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="section-title-wrap">
+            <span class="section-index">03 // CHRONOLOGIE</span>
+            <div>
+              <h2 class="section-title">Parcours &amp; Boîte à Outils</h2>
+              <p class="section-sub">
+                Expériences vérifiées en ordre antichronologique, double formation communication + code et outils maîtrisés.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-layout">
+          <div class="timeline-list reveal">
+            <article class="timeline-item">
+              <div class="timeline-head">
+                <h3>Michaël Delafosse — Campagne municipale</h3>
+                <span class="timeline-date">Jan. – Mars 2026</span>
+              </div>
+              <div class="timeline-role">Infographiste &amp; Relations Presse</div>
+              <ul>
+                <li>Mise en page de dossiers de presse et supports institutionnels.</li>
+                <li>Production rapide de visuels et publications Instagram conformes à la charte.</li>
+              </ul>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-head">
+                <h3>Opéra Orchestre national Montpellier</h3>
+                <span class="timeline-date">2023 – 2025 (2 ans)</span>
+              </div>
+              <div class="timeline-role">Assistant Communication &amp; Projets Internes</div>
+              <ul>
+                <li>Co-construction complète de l'intranet interne pour 416 salariés et intermittents.</li>
+                <li>Pilotage de newsletters hebdomadaires (35 000 contacts, taux d'ouverture &gt; 40 %) sous Brevo.</li>
+                <li>Rédaction de 10 newsletters internes (numérique &amp; A3) et conception graphique print/web.</li>
+                <li>Coordination logistique d'un food court étudiant (7 partenaires, budget zéro).</li>
+              </ul>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-head">
+                <h3>Go Easy</h3>
+                <span class="timeline-date">Mai – Juil. 2023</span>
+              </div>
+              <div class="timeline-role">Assistant Communication Digital &amp; E-commerce</div>
+              <ul>
+                <li>Refonte e-commerce : amélioration UX, lisibilité et référencement naturel (SEO).</li>
+                <li>Maquettage sur Figma, stratégie social media et packagings produits.</li>
+              </ul>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-head">
+                <h3>Autoentrepreneur — Conseil, Web &amp; CRM</h3>
+                <span class="timeline-date">2019 – 2020 (statut actif)</span>
+              </div>
+              <div class="timeline-role">Consultant Web, CRM &amp; Communication</div>
+              <ul>
+                <li>Création et déploiement de sites web responsive from scratch.</li>
+                <li>Mise en place d'outils CRM, suivi client et rédaction de cahiers des charges.</li>
+              </ul>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-head">
+                <h3>VRP Multicartes (Secteurs 26–07)</h3>
+                <span class="timeline-date">2015 – 2021 (6 ans)</span>
+              </div>
+              <div class="timeline-role">Commercial &amp; Gestion Clientèle</div>
+              <ul>
+                <li>Prospection, prise de rendez-vous, devis, négociation et fidélisation B2B/B2C.</li>
+                <li>Gestion autonome de l'activité administrative et suivi des litiges.</li>
+              </ul>
+            </article>
+          </div>
+
+          <aside class="reveal">
+            <div class="stack-box">
+              <h3>Diplômes &amp; Certificats</h3>
+              <ul class="stack-list">
+                <li>
+                  <div>
+                    <strong>Bachelor Responsable de Com.</strong><br />
+                    <small>Sup'de Com Montpellier · Délégué 3 ans, BDE &amp; vie étudiante · Mémoire intranet Opéra</small>
+                  </div>
+                  <span>2022–2025</span>
+                </li>
+                <li>
+                  <div>
+                    <strong>Inside LVMH Certificate</strong><br />
+                    <small>LVMH · Luxe, Création &amp; Stratégie de marque</small>
+                  </div>
+                  <span>Certifié</span>
+                </li>
+                <li>
+                  <div>
+                    <strong>BTS Développeur Full Stack</strong><br />
+                    <small>CEFii Angers · Apps web, BDD, WordPress</small>
+                  </div>
+                  <span>2019–2020</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="stack-box">
+              <h3>Outils &amp; Maîtrise</h3>
+              <ul class="stack-list">
+                <li><strong>PAO &amp; Édition</strong><span>InDesign · Photoshop · Illustrator</span></li>
+                <li><strong>UI &amp; Social</strong><span>Figma · Canva · Meta Suite</span></li>
+                <li><strong>Web &amp; Code</strong><span>HTML/CSS · JS · Python · WordPress</span></li>
+                <li><strong>CRM &amp; Data</strong><span>Brevo · Excel · Office 365</span></li>
+                <li><strong>IA &amp; Auto</strong><span>Gemini · Claude · Playwright</span></li>
+                <li><strong>Langues</strong><span>Français (natif) · Anglais (C1)</span></li>
+              </ul>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04. CONTACT -->
+    <section id="contact" class="section">
+      <div class="container">
+        <div class="contact-panel reveal">
+          <div>
+            <div class="eyebrow">04 // Collaborer</div>
+            <h2>Besoin d'un profil hybride créatif et structuré ?</h2>
+            <p>
+              Basé à Lodève (34700, véhiculé), disponible immédiatement pour un poste en communication, gestion/administration, web ou un accompagnement sur mesure (CDI, CDD, mission freelance via statut auto-entrepreneur actif). Je peux aussi réaliser rapidement une proposition visuelle ou vidéo sur votre sujet.
+            </p>
+            <div class="hero-cta" style="margin-bottom: 0;">
+              <a href="mailto:cedric.epaillard11@gmail.com" class="btn btn-primary">Envoyer un email ↗</a>
+              <a href="assets/CV_Cedric_Epaillard.pdf" download class="btn">Télécharger le CV PDF ↓</a>
+            </div>
+          </div>
+
+          <div class="contact-cards">
+            <div class="contact-row">
+              <div>
+                <small>Email direct</small>
+                <strong>cedric.epaillard11@gmail.com</strong>
+              </div>
+              <button class="btn" type="button" data-copy="cedric.epaillard11@gmail.com">Copier</button>
+            </div>
+            <div class="contact-row">
+              <div>
+                <small>Téléphone</small>
+                <strong>06.83.64.92.56</strong>
+              </div>
+              <button class="btn" type="button" data-copy="06.83.64.92.56">Copier</button>
+            </div>
+            <div class="contact-row">
+              <div>
+                <small>LinkedIn</small>
+                <strong>urlr.me/mE7WpK</strong>
+              </div>
+              <a class="btn" href="https://urlr.me/mE7WpK" target="_blank" rel="noopener">Ouvrir ↗</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>© 2026 Cédric Epaillard — Lodève (Hérault) &amp; Full Remote</span>
+      <a href="beta.html" class="beta-pill" title="Espace Labo Bêta — Prototypes &amp; expérimentations">λ bêta</a>
+    </div>
+  </footer>
+
+  <!-- MODALE PROJET -->
+  <dialog id="projectModal" class="project-modal">
+    <div class="modal-header">
+      <div>
+        <div id="modalKicker" class="project-kicker"></div>
+        <h3 id="modalTitle" class="project-title"></h3>
+        <div id="modalRole" class="project-role"></div>
+      </div>
+      <button id="modalClose" class="btn" type="button">Fermer ✕</button>
+    </div>
+    <div id="modalBody" class="modal-body"></div>
+  </dialog>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="projects-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Labo Bêta — Cédric Epaillard</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Cormorant+Garamond:ital,wght@0,600;1,600&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .beta-banner {
+      padding: 4.5rem 0 2.5rem;
+      border-bottom: 1px solid var(--line);
+    }
+    .beta-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 1.5rem;
+      padding: 3rem 0 5rem;
+    }
+    .beta-card {
+      grid-column: span 6;
+      background: var(--bg-card);
+      border: 1px solid var(--line);
+      padding: 1.6rem;
+      display: grid;
+      gap: 1rem;
+      align-content: start;
+    }
+    .beta-card.full {
+      grid-column: span 12;
+    }
+    .beta-tag {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .terminal-out {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      line-height: 1.6;
+      padding: 1rem 1.15rem;
+      background: var(--stage-bg);
+      border: 1px solid var(--line-strong);
+      white-space: pre-wrap;
+      min-height: 165px;
+    }
+    .swatch-preview {
+      border: 1px solid var(--line-strong);
+      padding: 1.6rem;
+      transition: all 0.25s ease;
+    }
+    .idea-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.65rem 0.85rem;
+      border: 1px solid var(--line);
+      background: var(--bg-elevated);
+    }
+    .idea-row.done span {
+      text-decoration: line-through;
+      opacity: 0.55;
+    }
+    @media (max-width: 900px) {
+      .beta-card {
+        grid-column: span 12;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-inner">
+      <a href="index.html" class="brand">
+        <span class="brand-mark">CE</span>
+        <span class="brand-text">
+          <strong>Labo Bêta</strong>
+          <span>Zone expérimentale · hors sommaire public</span>
+        </span>
+      </a>
+      <div class="nav-actions">
+        <button id="themeToggle" class="btn btn-icon" type="button">◐ Thème</button>
+        <a href="index.html" class="btn btn-primary">← Retour Portfolio</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="beta-banner">
+      <div class="container">
+        <div class="eyebrow">Mode Bêta · Espace Bac à Sable</div>
+        <h1 class="hero-title" style="margin-bottom:0.8rem;">
+          Prototypes &amp; <span class="line-accent">Expérimentations</span>
+        </h1>
+        <p class="hero-lead" style="margin-bottom:0;">
+          Un terrain de jeu privé pour tester des idées graphiques, outils interactifs et modules IA avant de les intégrer proprement sur la page principale.
+        </p>
+      </div>
+    </section>
+
+    <section class="container">
+      <div class="beta-grid">
+        <!-- Module 1 : Inspecteur [LATENT] / [SKILL] -->
+        <article class="beta-card">
+          <span class="beta-tag">Proto 01 // IA &amp; Raisonnement Symbolique</span>
+          <h2>Simulateur <code>[LATENT]</code> → <code>[SKILL]</code></h2>
+          <p style="font-size:0.92rem; color:var(--ink-muted);">
+            Aperçu de la structure apprise par <strong>Qwen2.5-Coder-14B-Latent-Skill</strong> lors des 1 000 étapes GRPO sur Colab.
+          </p>
+          <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+            <button class="btn sim-btn" data-case="audit" type="button">Audit Python</button>
+            <button class="btn sim-btn" data-case="sheets" type="button">Pipeline Ecceite</button>
+            <button class="btn sim-btn" data-case="pdf" type="button">Génération CV A4</button>
+          </div>
+          <div id="simOut" class="terminal-out"></div>
+        </article>
+
+        <!-- Module 2 : Banc d'essai PAO / Couleurs -->
+        <article class="beta-card">
+          <span class="beta-tag">Proto 02 // Direction Artistique Live</span>
+          <h2>Banc d’essai Typo &amp; Teintes</h2>
+          <p style="font-size:0.92rem; color:var(--ink-muted);">
+            Test rapide de combinaisons typographiques et contrastes éditoriaux pour futurs projets.
+          </p>
+          <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+            <button class="btn palette-btn" data-bg="#09090c" data-fg="#f3efe6" data-ac="#f0b400" data-font="Cinzel, serif" type="button">Studio Or</button>
+            <button class="btn palette-btn" data-bg="#f4efe6" data-fg="#111115" data-ac="#b87400" data-font="Cormorant Garamond, serif" type="button">Papier Archive</button>
+            <button class="btn palette-btn" data-bg="#081426" data-fg="#e0f2fe" data-ac="#38bdf8" data-font="JetBrains Mono, monospace" type="button">Cyanotype</button>
+            <button class="btn palette-btn" data-bg="#190e12" data-fg="#fbeee8" data-ac="#fb7185" data-font="Space Grotesk, sans-serif" type="button">Opéra Velours</button>
+          </div>
+          <div id="swatchBox" class="swatch-preview" style="background:#09090c; color:#f3efe6;">
+            <div id="swatchKicker" style="font-family:var(--font-mono); font-size:0.72rem; letter-spacing:0.14em; color:#f0b400; text-transform:uppercase;">ÉDITION EXPÉRIMENTALE · 2026</div>
+            <div id="swatchTitle" style="font-family:Cinzel, serif; font-size:1.75rem; font-weight:700; margin:0.45rem 0;">Donner de la forme aux idées.</div>
+            <p style="font-size:0.9rem; opacity:0.85;">Aperçu instantané de hiérarchie et de lisibilité pour tester une nouvelle direction artistique.</p>
+          </div>
+        </article>
+
+        <!-- Module 3 : Carnet Bêta -> Prod -->
+        <article class="beta-card full">
+          <span class="beta-tag">Proto 03 // Backlog Labo → Page Principale</span>
+          <h2>Idées à développer puis promouvoir</h2>
+          <p style="font-size:0.92rem; color:var(--ink-muted);">
+            Notes sauvegardées localement dans ton navigateur (<code>localStorage</code>) pour garder une trace des modules à peaufiner avant publication.
+          </p>
+          <form id="ideaForm" style="display:flex; gap:0.65rem; flex-wrap:wrap;">
+            <input id="ideaInput" type="text" placeholder="Ex : Ajouter un mini-lecteur PDF interactif ou une timeline animée…" style="flex:1; min-width:240px; padding:0.65rem 0.9rem; background:var(--stage-bg); color:var(--ink); border:1px solid var(--line-strong); font-family:inherit;" />
+            <button class="btn btn-primary" type="submit">Ajouter au labo</button>
+          </form>
+          <div id="ideaList" style="display:grid; gap:0.55rem;"></div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>© 2026 Cédric Epaillard — Labo Bêta</span>
+      <a href="index.html" class="beta-pill">← Page principale</a>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const themeBtn = document.getElementById("themeToggle");
+      if (localStorage.getItem("ce_theme") === "paper") {
+        document.body.classList.add("theme-paper");
+      }
+      themeBtn.addEventListener("click", () => {
+        const isPaper = document.body.classList.toggle("theme-paper");
+        localStorage.setItem("ce_theme", isPaper ? "paper" : "studio");
+      });
+
+      const cases = {
+        audit:
+`[LATENT] audit:redacteur.py -> detect:403_gemini_region -> strategy:fallback_groq+web_audit [/LATENT]
+[SKILL] {"tool": "python", "cmd": "python -m py_compile redacteur.py"} [/SKILL]
+Réponse : Fallback automatique Gemini -> Groq activé et audit site/RS vérifié.`,
+        sheets:
+`[LATENT] source:gsheet_B5 -> ground:custom_search(5) -> synth:article_seo [/LATENT]
+[SKILL] {"tool": "python", "cmd": "worksheet.update_acell('C5', clean_ai_output(article))"} [/SKILL]
+Réponse : Contenu SEO enrichi par recherche Google live écrit en colonne C.`,
+        pdf:
+`[LATENT] profil:ordre_antichrono -> layout:A4_1123px -> check:overflow==0 [/LATENT]
+[SKILL] {"tool": "python", "cmd": "page.pdf(path='CV.pdf', format='A4', print_background=True)"} [/SKILL]
+Réponse : CV A4 généré sur exactement 1 page avec lien portfolio cliquable.`
+      };
+      const simOut = document.getElementById("simOut");
+      const runCase = (k) => { simOut.textContent = cases[k] || ""; };
+      document.querySelectorAll(".sim-btn").forEach((b) => b.addEventListener("click", () => runCase(b.dataset.case)));
+      runCase("audit");
+
+      const swatchBox = document.getElementById("swatchBox");
+      const swatchKicker = document.getElementById("swatchKicker");
+      const swatchTitle = document.getElementById("swatchTitle");
+      document.querySelectorAll(".palette-btn").forEach((b) => {
+        b.addEventListener("click", () => {
+          swatchBox.style.background = b.dataset.bg;
+          swatchBox.style.color = b.dataset.fg;
+          swatchKicker.style.color = b.dataset.ac;
+          swatchTitle.style.fontFamily = b.dataset.font;
+        });
+      });
+
+      const STORAGE_KEY = "ce_beta_ideas_v1";
+      const defaults = [
+        { text: "Tester un mini-lecteur PDF interactif pour Archi&Co N°12", done: false },
+        { text: "Ajouter un comparateur avant/après des campagnes Mosaïque", done: false }
+      ];
+      let ideas = defaults;
+      try {
+        const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "null");
+        if (Array.isArray(saved) && saved.length) ideas = saved;
+      } catch {}
+
+      const listEl = document.getElementById("ideaList");
+      const saveIdeas = () => localStorage.setItem(STORAGE_KEY, JSON.stringify(ideas));
+      const renderIdeas = () => {
+        listEl.innerHTML = "";
+        ideas.forEach((item, idx) => {
+          const row = document.createElement("div");
+          row.className = "idea-row" + (item.done ? " done" : "");
+          const span = document.createElement("span");
+          span.textContent = item.text;
+          const actions = document.createElement("div");
+          actions.style.cssText = "display:flex; gap:0.4rem;";
+          const toggle = document.createElement("button");
+          toggle.className = "btn";
+          toggle.type = "button";
+          toggle.textContent = item.done ? "Rétablir" : "Validé";
+          toggle.addEventListener("click", () => { ideas[idx].done = !ideas[idx].done; saveIdeas(); renderIdeas(); });
+          const del = document.createElement("button");
+          del.className = "btn";
+          del.type = "button";
+          del.textContent = "✕";
+          del.addEventListener("click", () => { ideas.splice(idx, 1); saveIdeas(); renderIdeas(); });
+          actions.append(toggle, del);
+          row.append(span, actions);
+          listEl.append(row);
+        });
+      };
+      renderIdeas();
+
+      document.getElementById("ideaForm").addEventListener("submit", (e) => {
+        e.preventDefault();
+        const input = document.getElementById("ideaInput");
+        const val = input.value.trim();
+        if (!val) return;
+        ideas.unshift({ text: val, done: false });
+        input.value = "";
+        saveIdeas();
+        renderIdeas();
+      });
+    })();
+  </script>
+</body>
+</html>
