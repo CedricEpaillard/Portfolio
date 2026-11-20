@@ -287,12 +287,12 @@ button {
 
 .hero-title {
   font-family: var(--font-display);
-  font-size: clamp(2.4rem, 5.4vw, 4.5rem);
+  font-size: clamp(1.75rem, 3.6vw, 3.1rem);
   font-weight: 700;
-  line-height: 1.02;
+  line-height: 1.06;
   letter-spacing: 0.03em;
   text-transform: uppercase;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.15rem;
 }
 
 .hero-title .line-accent {
@@ -303,8 +303,8 @@ button {
   font-weight: 600;
   text-transform: none;
   letter-spacing: 0.01em;
-  font-size: clamp(2.2rem, 4.8vw, 4rem);
-  margin-top: 0.25rem;
+  font-size: clamp(1.55rem, 3.2vw, 2.75rem);
+  margin-top: 0.22rem;
 }
 
 .hero-lead {
@@ -1326,12 +1326,12 @@ dialog.project-modal::backdrop {
   }
 
   .hero-title {
-    font-size: 1.95rem;
-    margin-bottom: 0.9rem;
+    font-size: 1.65rem;
+    margin-bottom: 0.85rem;
   }
 
   .hero-title .line-accent {
-    font-size: 1.75rem;
+    font-size: 1.48rem;
   }
 
   .hero-lead {
