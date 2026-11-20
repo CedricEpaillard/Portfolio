@@ -283,10 +283,40 @@
     });
   }
 
+  function openMediaModal(item) {
+    if (!item) return;
+    modalKicker.innerHTML = `<span>${item.type === "video" ? "ATELIER · VIDÉO" : "ATELIER · VISUEL"}</span><span class="year">ÉDITION</span>`;
+    modalTitle.textContent = item.title;
+    modalRole.textContent = item.caption || "";
+
+    if (item.type === "video") {
+      const posterAttr = item.poster ? `poster="${escapeHtml(item.poster)}"` : "";
+      modalBody.innerHTML = `
+        <div class="modal-video-stage">
+          <video controls autoplay playsinline ${posterAttr} src="${escapeHtml(item.src)}"></video>
+        </div>
+      `;
+    } else {
+      modalBody.innerHTML = `
+        <div class="modal-stage" style="max-height:72vh;">
+          <img src="${escapeHtml(item.src)}" alt="${escapeHtml(item.title)}" style="max-height:70vh;" />
+        </div>
+      `;
+    }
+
+    modal.showModal();
+    modal.scrollTop = 0;
+    modalClose.focus({ preventScroll: true });
+    requestAnimationFrame(() => {
+      modal.scrollTop = 0;
+    });
+  }
+
   function renderStudio() {
     const cards = mediaItems
       .map((item) => {
         let visual = "";
+        let isInteractive = false;
         if (item.type === "calameo") {
           visual = `
             <div class="calameo-poster">
@@ -304,16 +334,26 @@
               </div>
             </div>`;
         } else if (item.type === "image") {
+          isInteractive = true;
           visual = `<img src="${escapeHtml(item.src)}" alt="${escapeHtml(item.title)}" loading="lazy" />`;
         } else if (item.type === "video") {
-          const posterAttr = item.poster ? `poster="${escapeHtml(item.poster)}"` : "";
-          visual = `<video controls preload="metadata" ${posterAttr} src="${escapeHtml(item.src)}"></video>`;
+          isInteractive = true;
+          const posterSrc = item.poster || "";
+          visual = `
+            <img src="${escapeHtml(posterSrc)}" alt="${escapeHtml(item.title)}" loading="lazy" />
+            <div class="video-play-overlay">
+              <span class="video-play-badge">▶ Lire la vidéo</span>
+            </div>`;
         } else if (item.type === "youtube") {
           visual = `<iframe src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(item.youtubeId)}" allowfullscreen loading="lazy" title="${escapeHtml(item.title)}"></iframe>`;
         }
 
+        const interactiveAttrs = isInteractive
+          ? `data-media-id="${escapeHtml(item.id)}" tabindex="0" role="button" aria-label="Ouvrir ${escapeHtml(item.title)}"`
+          : "";
+
         return `
-          <article class="media-card reveal in-view">
+          <article class="media-card ${isInteractive ? "is-interactive" : ""} reveal in-view" ${interactiveAttrs}>
             <div class="media-frame">${visual}</div>
             <div>
               <h3 style="font-size:1.05rem; font-weight:700;">${escapeHtml(item.title)}</h3>
@@ -325,18 +365,27 @@
 
     const customTestCard = `
       <article class="media-card atelier-cta-card reveal in-view">
-        <span class="eyebrow" style="margin-bottom:0.6rem;">Sur mesure · Visuel &amp; Vidéo</span>
+        <span class="eyebrow" style="margin-bottom:0.4rem;">Sur mesure · Visuel &amp; Vidéo</span>
         <h3>Une proposition créative sur votre sujet ?</h3>
-        <p style="font-size:0.92rem; color:var(--ink-muted);">
-          Plutôt qu'un catalogue figé, je peux réaliser rapidement une maquette visuelle (InDesign / Figma / Photoshop) ou un montage court (30–45s) adapté à votre actualité pour vous montrer concrètement mon approche.
-        </p>
-        <div style="display:flex; gap:0.75rem; flex-wrap:wrap; margin-top:0.5rem;">
+        <div style="display:flex; gap:0.75rem; flex-wrap:wrap; margin-top:0.6rem;">
           <a href="#contact" class="btn btn-primary">Demander un test créatif</a>
-          <a href="https://www.calameo.com/read/00761721382a6f4dbdc6d" target="_blank" rel="noopener" class="btn">Voir le Magazine ↗</a>
+          <a href="https://www.calameo.com/read/00761721382a6f4dbdc6d" target="_blank" rel="noopener" class="btn">Feuilleter « Les Backrooms » (12 pages) ↗</a>
         </div>
       </article>`;
 
     studioEl.innerHTML = cards + customTestCard;
+
+    studioEl.querySelectorAll(".media-card.is-interactive").forEach((card) => {
+      const item = mediaItems.find((m) => m.id === card.dataset.mediaId);
+      const open = () => openMediaModal(item);
+      card.addEventListener("click", open);
+      card.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          open();
+        }
+      });
+    });
 
     studioEl.querySelectorAll(".load-calameo-inline").forEach((btn) => {
       btn.addEventListener("click", () => {
@@ -358,6 +407,12 @@
 
   // Fermeture modale (uniquement sur clic réel sur le backdrop, jamais depuis un enfant ou clic clavier)
   modalClose.addEventListener("click", () => modal.close());
+  modal.addEventListener("close", () => {
+    modalBody.querySelectorAll("video").forEach((v) => {
+      v.pause();
+      v.removeAttribute("src");
+    });
+  });
   modal.addEventListener("click", (e) => {
     if (e.target !== modal) return;
     if (e.clientX === 0 && e.clientY === 0) return;
